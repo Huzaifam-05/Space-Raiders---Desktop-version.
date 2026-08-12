@@ -1,0 +1,6 @@
+C:\Users\DELL\Desktop\Code\Space Shooting\x64\Debug\raylib.dll
+C:\Users\DELL\Desktop\Code\Space Shooting\x64\Debug\glfw3.dll
+C:\Users\DELL\Desktop\Code\Space Shooting\Space Shooting\x64\Debug\Space Sh.0094F0F2.Up2Date
+C:\Users\DELL\Desktop\final done 100 percent\x64\Debug\raylib.dll
+C:\Users\DELL\Desktop\final done 100 percent\x64\Debug\glfw3.dll
+C:\Users\DELL\Desktop\final done 100 percent\Space Shooting\x64\Debug\Space Sh.0094F0F2.Up2Date

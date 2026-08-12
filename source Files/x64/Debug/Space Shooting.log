@@ -1,0 +1,12 @@
+﻿  Graphics.cpp
+C:\Users\DELL\Desktop\final done 100 percent\Space Shooting\Graphics.cpp(546,13): warning C4244: 'argument': conversion from 'const float' to 'int', possible loss of data
+C:\Users\DELL\Desktop\final done 100 percent\Space Shooting\Graphics.cpp(545,13): warning C4244: 'argument': conversion from 'const float' to 'int', possible loss of data
+C:\Users\DELL\Desktop\final done 100 percent\Space Shooting\Graphics.cpp(553,13): warning C4244: 'argument': conversion from 'const float' to 'int', possible loss of data
+C:\Users\DELL\Desktop\final done 100 percent\Space Shooting\Graphics.cpp(552,13): warning C4244: 'argument': conversion from 'const float' to 'int', possible loss of data
+C:\Users\DELL\Desktop\final done 100 percent\Space Shooting\Graphics.cpp(576,13): warning C4244: 'argument': conversion from 'const float' to 'int', possible loss of data
+C:\Users\DELL\Desktop\final done 100 percent\Space Shooting\Graphics.cpp(575,13): warning C4244: 'argument': conversion from 'const float' to 'int', possible loss of data
+C:\Users\DELL\Desktop\final done 100 percent\Space Shooting\Graphics.cpp(584,13): warning C4244: 'argument': conversion from 'const float' to 'int', possible loss of data
+C:\Users\DELL\Desktop\final done 100 percent\Space Shooting\Graphics.cpp(583,13): warning C4244: 'argument': conversion from 'const float' to 'int', possible loss of data
+C:\Users\DELL\Desktop\final done 100 percent\Space Shooting\Graphics.cpp(592,13): warning C4244: 'argument': conversion from 'const float' to 'int', possible loss of data
+C:\Users\DELL\Desktop\final done 100 percent\Space Shooting\Graphics.cpp(591,13): warning C4244: 'argument': conversion from 'const float' to 'int', possible loss of data
+  Space Shooting.vcxproj -> C:\Users\DELL\Desktop\final done 100 percent\x64\Debug\Space Shooting.exe

@@ -1,0 +1,2484 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+>
+
+<title>Space Raiders — Game Codex</title>
+
+
+<style>
+
+/* =========================================================
+   GLOBAL
+========================================================= */
+
+* {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    margin: 0;
+    padding: 0;
+    min-height: 100%;
+}
+
+body {
+
+    background:
+        radial-gradient(
+            circle at 50% -10%,
+            #12364d 0%,
+            #071521 30%,
+            #02070d 65%,
+            #000 100%
+        );
+
+    color: #e9f8ff;
+
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
+    overflow-x: hidden;
+}
+
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+.header {
+
+    position: sticky;
+
+    top: 0;
+
+    z-index: 100;
+
+    min-height: 72px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    padding: 0 35px;
+
+    background:
+        rgba(2, 8, 14, 0.94);
+
+    border-bottom:
+        1px solid
+        rgba(75, 210, 255, 0.18);
+
+    backdrop-filter:
+        blur(14px);
+}
+
+
+.logo {
+
+    font-size: 18px;
+
+    font-weight: 900;
+
+    letter-spacing: 4px;
+}
+
+
+.logo span {
+
+    color: #59ddff;
+}
+
+
+/* =========================================================
+   HERO
+========================================================= */
+
+.hero {
+
+    max-width: 1150px;
+
+    margin: auto;
+
+    padding:
+        75px 25px 45px;
+
+    text-align: center;
+}
+
+
+.eyebrow {
+
+    color: #54dcff;
+
+    font-size: 10px;
+
+    font-weight: 800;
+
+    letter-spacing: 5px;
+
+    text-transform: uppercase;
+}
+
+
+.hero h1 {
+
+    margin:
+        12px 0 10px;
+
+    font-size:
+        clamp(38px, 6vw, 72px);
+
+    letter-spacing: 5px;
+
+    text-transform: uppercase;
+}
+
+
+.author {
+
+    color: #62cfff;
+
+    font-size: 11px;
+
+    font-weight: 800;
+
+    letter-spacing: 3px;
+}
+
+
+.hero p {
+
+    max-width: 760px;
+
+    margin:
+        25px auto 0;
+
+    color: #7892a5;
+
+    font-size: 14px;
+
+    line-height: 1.8;
+}
+
+
+/* =========================================================
+   CONTENT
+========================================================= */
+
+.content {
+
+    max-width: 1150px;
+
+    margin: auto;
+
+    padding:
+        0 25px 90px;
+}
+
+
+/* =========================================================
+   SECTION
+========================================================= */
+
+.section {
+
+    margin-top: 55px;
+}
+
+
+.section-header {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 14px;
+
+    margin-bottom: 18px;
+
+    padding-bottom: 12px;
+
+    border-bottom:
+        1px solid
+        rgba(80, 190, 240, 0.13);
+}
+
+
+.section-number {
+
+    color: #51dcff;
+
+    font-size: 11px;
+
+    font-weight: 900;
+
+    letter-spacing: 2px;
+}
+
+
+.section-title {
+
+    margin: 0;
+
+    font-size: 22px;
+
+    letter-spacing: 3px;
+
+    text-transform: uppercase;
+}
+
+
+/* =========================================================
+   GRID
+========================================================= */
+
+.grid {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(
+            auto-fit,
+            minmax(250px, 1fr)
+        );
+
+    gap: 15px;
+
+    align-items: stretch;
+}
+
+
+/* =========================================================
+   ALL CARDS
+========================================================= */
+
+.card {
+
+    position: relative;
+
+    display: flex;
+
+    flex-direction: column;
+
+    min-height: 310px;
+
+    padding: 23px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(13, 35, 52, 0.86),
+            rgba(3, 11, 19, 0.94)
+        );
+
+    border:
+        1px solid
+        rgba(75, 185, 235, 0.14);
+
+    box-shadow:
+        0 15px 35px
+        rgba(0, 0, 0, 0.25);
+
+    transition:
+        transform 0.15s,
+        border-color 0.15s;
+}
+
+
+.card:hover {
+
+    transform:
+        translateY(-3px);
+
+    border-color:
+        rgba(70, 210, 255, 0.4);
+}
+
+
+/* =========================================================
+   ICON
+========================================================= */
+
+.icon {
+
+    height: 55px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    margin-bottom: 14px;
+
+    font-size: 32px;
+
+    line-height: 1;
+}
+
+
+/* =========================================================
+   CARD TITLE
+========================================================= */
+
+.card h3 {
+
+    margin:
+        0 0 10px;
+
+    color: #dff8ff;
+
+    font-size: 15px;
+
+    letter-spacing: 1px;
+
+    text-align: center;
+}
+
+
+/* =========================================================
+   CARD DESCRIPTION
+========================================================= */
+
+.card p {
+
+    margin: 0;
+
+    color: #728ca0;
+
+    font-size: 12px;
+
+    line-height: 1.7;
+
+    text-align: center;
+
+    flex: 1;
+}
+
+
+/* =========================================================
+   BADGES
+========================================================= */
+
+.tag {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    align-self: center;
+
+    min-height: 29px;
+
+    margin-top: 20px;
+
+    padding:
+        5px 11px;
+
+    background:
+        rgba(60, 200, 255, 0.08);
+
+    border:
+        1px solid
+        rgba(60, 200, 255, 0.20);
+
+    color: #62dfff;
+
+    font-size: 8px;
+
+    font-weight: 800;
+
+    letter-spacing: 1.5px;
+
+    white-space: nowrap;
+}
+
+
+/* =========================================================
+   FORMATION CARDS
+========================================================= */
+
+.formation-card {
+
+    min-height: 310px;
+
+}
+
+
+.formation-card .icon {
+
+    height: 65px;
+
+    font-size: 36px;
+
+}
+
+
+/* =========================================================
+   RANDOM GENERATOR
+========================================================= */
+
+.generator {
+
+    position: relative;
+
+    padding: 32px;
+
+    overflow: hidden;
+
+    background:
+
+        radial-gradient(
+            circle at 90% 20%,
+            rgba(30, 180, 255, 0.16),
+            transparent 35%
+        ),
+
+        linear-gradient(
+            135deg,
+            rgba(8, 37, 55, 0.95),
+            rgba(3, 10, 18, 0.98)
+        );
+
+    border:
+        1px solid
+        rgba(70, 220, 255, 0.35);
+
+    box-shadow:
+        0 0 45px
+        rgba(30, 190, 255, 0.08);
+}
+
+
+.generator::before {
+
+    content:
+        "CORE SYSTEM";
+
+    position: absolute;
+
+    top: 15px;
+
+    right: 18px;
+
+    color:
+        rgba(80, 215, 255, 0.45);
+
+    font-size: 8px;
+
+    font-weight: 900;
+
+    letter-spacing: 3px;
+}
+
+
+.generator h3 {
+
+    margin:
+        0 0 10px;
+
+    color: #61e0ff;
+
+    font-size: 22px;
+
+    letter-spacing: 2px;
+}
+
+
+.generator-description {
+
+    max-width: 850px;
+
+    color: #8daabd;
+
+    font-size: 13px;
+
+    line-height: 1.8;
+}
+
+
+.generator-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(
+            auto-fit,
+            minmax(190px, 1fr)
+        );
+
+    gap: 10px;
+
+    margin-top: 24px;
+}
+
+
+.generator-item {
+
+    padding: 17px;
+
+    background:
+        rgba(0, 0, 0, 0.22);
+
+    border:
+        1px solid
+        rgba(80, 190, 240, 0.13);
+}
+
+
+.generator-item strong {
+
+    display: block;
+
+    margin-bottom: 6px;
+
+    color: #dff8ff;
+
+    font-size: 11px;
+
+    letter-spacing: 1px;
+}
+
+
+.generator-item span {
+
+    color: #68879b;
+
+    font-size: 10px;
+
+    line-height: 1.5;
+}
+
+
+/* =========================================================
+   WARNING / LATE GAME
+========================================================= */
+
+.warning {
+
+    padding: 27px;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(80, 25, 30, 0.45),
+            rgba(25, 8, 13, 0.85)
+        );
+
+    border:
+        1px solid
+        rgba(255, 75, 90, 0.28);
+}
+
+
+.warning-title {
+
+    margin-bottom: 9px;
+
+    color: #ff6876;
+
+    font-size: 18px;
+
+    font-weight: 900;
+
+    letter-spacing: 2px;
+}
+
+
+.warning p {
+
+    margin: 0;
+
+    color: #a9848a;
+
+    font-size: 12px;
+
+    line-height: 1.8;
+}
+
+
+/* =========================================================
+   TIMELINE
+========================================================= */
+
+.timeline {
+
+    display: grid;
+
+    gap: 10px;
+}
+
+
+.act {
+
+    display: grid;
+
+    grid-template-columns:
+        95px 1fr;
+
+    gap: 18px;
+
+    padding: 20px;
+
+    background:
+        rgba(7, 22, 34, 0.72);
+
+    border:
+        1px solid
+        rgba(75, 180, 230, 0.13);
+}
+
+
+.act-number {
+
+    color: #55dcff;
+
+    font-size: 11px;
+
+    font-weight: 900;
+
+    letter-spacing: 2px;
+}
+
+
+.act h3 {
+
+    margin:
+        0 0 6px;
+
+    font-size: 14px;
+
+    letter-spacing: 1px;
+}
+
+
+.act p {
+
+    margin: 0;
+
+    color: #70899c;
+
+    font-size: 11px;
+
+    line-height: 1.6;
+}
+
+
+/* =========================================================
+   CONTROLS
+========================================================= */
+
+.controls {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(
+            auto-fit,
+            minmax(190px, 1fr)
+        );
+
+    gap: 10px;
+}
+
+
+.control {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+    padding: 15px;
+
+    background:
+        rgba(7, 20, 31, 0.7);
+
+    border:
+        1px solid
+        rgba(75, 180, 230, 0.12);
+}
+
+
+.key {
+
+    min-width: 65px;
+
+    padding: 8px;
+
+    text-align: center;
+
+    background:
+        rgba(50, 100, 125, 0.24);
+
+    border:
+        1px solid
+        rgba(80, 200, 240, 0.25);
+
+    color: #c4f2ff;
+
+    font-size: 9px;
+
+    font-weight: 900;
+}
+
+
+.control span {
+
+    color: #7893a5;
+
+    font-size: 10px;
+
+    text-transform: uppercase;
+
+    letter-spacing: 1px;
+}
+
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+footer {
+
+    padding:
+        32px 20px;
+
+    text-align: center;
+
+    border-top:
+        1px solid
+        rgba(70, 180, 230, 0.1);
+
+    color: #405667;
+
+    font-size: 9px;
+
+    letter-spacing: 2px;
+}
+
+
+footer strong {
+
+    display: block;
+
+    margin-top: 8px;
+
+    color: #58cfff;
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 600px) {
+
+    .header {
+
+        padding:
+            0 15px;
+    }
+
+
+    .logo {
+
+        font-size: 12px;
+
+        letter-spacing: 2px;
+    }
+
+
+    .hero {
+
+        padding:
+            55px 18px 35px;
+    }
+
+
+    .content {
+
+        padding:
+            0 18px 60px;
+    }
+
+
+    .act {
+
+        grid-template-columns: 1fr;
+
+        gap: 8px;
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<!-- =========================================================
+     HEADER
+========================================================= -->
+
+<header class="header">
+
+    <div class="logo">
+
+        SPACE <span>RAIDERS</span>
+
+    </div>
+
+</header>
+
+
+
+<!-- =========================================================
+     HERO
+========================================================= -->
+
+<section class="hero">
+
+    <div class="eyebrow">
+        SPACE RAIDERS // GAME DATABASE
+    </div>
+
+
+    <h1>
+        GAME FEATURES
+    </h1>
+
+
+    <div class="author">
+        CREATED BY MUHAMMAD HUZAIFA
+    </div>
+
+
+    <p>
+
+        Explore the systems behind Space Raiders.
+        Enemy formations, enemy classes, movement
+        patterns, firing systems, power-ups,
+        procedural level generation and late-game
+        escalation all work together to make each
+        campaign progressively more dangerous.
+
+    </p>
+
+</section>
+
+
+
+<main class="content">
+
+
+<!-- =========================================================
+     01 — CORE SYSTEMS
+========================================================= -->
+
+<section class="section">
+
+    <div class="section-header">
+
+        <div class="section-number">
+            01
+        </div>
+
+        <h2 class="section-title">
+            Core Systems
+        </h2>
+
+    </div>
+
+
+    <div class="grid">
+
+
+        <div class="card">
+
+            <div class="icon">
+                🚀
+            </div>
+
+            <h3>
+                Player Ship
+            </h3>
+
+            <p>
+                Control your spacecraft through
+                increasingly dangerous enemy waves.
+                Movement, firing, health and weapon
+                heat all have to be managed during
+                combat.
+            </p>
+
+            <span class="tag">
+                PLAYER SYSTEM
+            </span>
+
+        </div>
+
+
+        <div class="card">
+
+            <div class="icon">
+                ❤️
+            </div>
+
+            <h3>
+                Health System
+            </h3>
+
+            <p>
+                Your health determines whether the
+                ship survives the current encounter.
+                Health can also be restored through
+                the Health power-up.
+            </p>
+
+            <span class="tag">
+                SURVIVAL
+            </span>
+
+        </div>
+
+
+        <div class="card">
+
+            <div class="icon">
+                🔥
+            </div>
+
+            <h3>
+                Weapon Heat
+            </h3>
+
+            <p>
+                Continuous firing generates heat.
+                Stop firing to allow the weapon
+                to cool and avoid overheating.
+            </p>
+
+            <span class="tag">
+                WEAPON MANAGEMENT
+            </span>
+
+        </div>
+
+
+        <div class="card">
+
+            <div class="icon">
+                💾
+            </div>
+
+            <h3>
+                Save & Checkpoints
+            </h3>
+
+            <p>
+                Campaign state stores important
+                progression information so the
+                player can continue from saved
+                progress.
+            </p>
+
+            <span class="tag">
+                PROGRESSION
+            </span>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================================
+     02 — ENEMY FORMATIONS
+========================================================= -->
+
+<section class="section">
+
+    <div class="section-header">
+
+        <div class="section-number">
+            02
+        </div>
+
+        <h2 class="section-title">
+            Enemy Formations
+        </h2>
+
+    </div>
+
+
+    <div class="grid">
+
+
+        <div class="card formation-card">
+
+            <div class="icon">
+                👾
+            </div>
+
+            <h3>
+                Basic Formation
+            </h3>
+
+            <p>
+                The campaign begins with the basic
+                enemy formation before additional
+                formation patterns are introduced.
+            </p>
+
+            <span class="tag">
+                STARTING FORMATION
+            </span>
+
+        </div>
+
+
+        <div class="card formation-card">
+
+            <div class="icon">
+                🔺
+            </div>
+
+            <h3>
+                TRIANGLE
+            </h3>
+
+            <p>
+                A triangular arrangement that expands
+                the formation pool during the early
+                campaign.
+            </p>
+
+            <span class="tag">
+                LEVEL 4
+            </span>
+
+        </div>
+
+
+        <div class="card formation-card">
+
+            <div class="icon">
+                🔷
+            </div>
+
+            <h3>
+                DIAMOND
+            </h3>
+
+            <p>
+                A more structured formation added
+                after the Triangle formation.
+            </p>
+
+            <span class="tag">
+                LEVEL 8
+            </span>
+
+        </div>
+
+
+        <div class="card formation-card">
+
+            <div class="icon">
+                ⭕
+            </div>
+
+            <h3>
+                CIRCLE
+            </h3>
+
+            <p>
+                A circular enemy arrangement that
+                enters the formation pool during
+                the second act.
+            </p>
+
+            <span class="tag">
+                LEVEL 14
+            </span>
+
+        </div>
+
+
+        <div class="card formation-card">
+
+            <div class="icon">
+                🎲
+            </div>
+
+            <h3>
+                RANDOM
+            </h3>
+
+            <p>
+                Random formation data makes enemy
+                positioning less predictable and
+                adds another source of variation.
+            </p>
+
+            <span class="tag">
+                LEVEL 24
+            </span>
+
+        </div>
+
+
+        <div class="card formation-card">
+
+            <div class="icon">
+                🧩
+            </div>
+
+            <h3>
+                Formation Pool
+            </h3>
+
+            <p>
+                The level generator maintains a
+                formation pool and uses it when
+                constructing normal-level encounters.
+            </p>
+
+            <span class="tag">
+                PROCEDURAL SYSTEM
+            </span>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================================
+     03 — ENEMY TYPES
+========================================================= -->
+
+<section class="section">
+
+    <div class="section-header">
+
+        <div class="section-number">
+            03
+        </div>
+
+        <h2 class="section-title">
+            Enemy Types
+        </h2>
+
+    </div>
+
+
+    <div class="grid">
+
+
+        <div class="card">
+
+            <div class="icon">
+                👾
+            </div>
+
+            <h3>
+                BASIC
+            </h3>
+
+            <p>
+                The starting enemy class that
+                establishes the core combat loop.
+            </p>
+
+            <span class="tag">
+                START
+            </span>
+
+        </div>
+
+
+        <div class="card">
+
+            <div class="icon">
+                ⚡
+            </div>
+
+            <h3>
+                SPEEDY
+            </h3>
+
+            <p>
+                A faster enemy class introduced
+                during the early progression.
+            </p>
+
+            <span class="tag">
+                LEVEL 6
+            </span>
+
+        </div>
+
+
+        <div class="card">
+
+            <div class="icon">
+                🛡️
+            </div>
+
+            <h3>
+                TANK
+            </h3>
+
+            <p>
+                A heavier enemy class introduced
+                later in Act II, increasing the
+                durability of enemy encounters.
+            </p>
+
+            <span class="tag">
+                LEVEL 16
+            </span>
+
+        </div>
+
+
+        <div class="card">
+
+            <div class="icon">
+                ☠️
+            </div>
+
+            <h3>
+                DESTROYER
+            </h3>
+
+            <p>
+                A stronger enemy type introduced
+                during Act III as the campaign
+                becomes more dangerous.
+            </p>
+
+            <span class="tag">
+                LEVEL 22
+            </span>
+
+        </div>
+
+
+        <div class="card">
+
+            <div class="icon">
+                💠
+            </div>
+
+            <h3>
+                ELITE
+            </h3>
+
+            <p>
+                Elite enemies are upgraded threats.
+                Elite counts increase through later
+                progression, and surviving enemies
+                can also be promoted.
+            </p>
+
+            <span class="tag">
+                LATE GAME
+            </span>
+
+        </div>
+
+
+        <div class="card">
+
+            <div class="icon">
+                🔀
+            </div>
+
+            <h3>
+                MIXED ENEMIES
+            </h3>
+
+            <p>
+                Starting in Act IV, different enemy
+                types can appear together instead
+                of relying on one enemy type.
+            </p>
+
+            <span class="tag">
+                LEVEL 31+
+            </span>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================================
+     04 — MOVEMENT
+========================================================= -->
+
+<section class="section">
+
+    <div class="section-header">
+
+        <div class="section-number">
+            04
+        </div>
+
+        <h2 class="section-title">
+            Enemy Movement
+        </h2>
+
+    </div>
+
+
+    <div class="grid">
+
+
+        <div class="card">
+
+            <div class="icon">
+                ↔️
+            </div>
+
+            <h3>
+                LEFT / RIGHT
+            </h3>
+
+            <p>
+                Enemy formations move horizontally
+                and reverse direction when reaching
+                the playfield boundaries.
+            </p>
+
+            <span class="tag">
+                FORMATION MOVEMENT
+            </span>
+
+        </div>
+
+
+        <div class="card">
+
+            <div class="icon">
+                ⬇️
+            </div>
+
+            <h3>
+                STRAIGHT
+            </h3>
+
+            <p>
+                Enemies can use a straight attacking
+                behavior rather than relying only
+                on horizontal formation movement.
+            </p>
+
+            <span class="tag">
+                LEVEL 3
+            </span>
+
+        </div>
+
+
+        <div class="card">
+
+            <div class="icon">
+                ↘️
+            </div>
+
+            <h3>
+                DIVE
+            </h3>
+
+            <p>
+                Enemies can leave their formation
+                and dive toward the player, creating
+                a direct attack path.
+            </p>
+
+            <span class="tag">
+                LEVEL 13
+            </span>
+
+        </div>
+
+
+        <div class="card">
+
+            <div class="icon">
+                〽️
+            </div>
+
+            <h3>
+                ZIGZAG
+            </h3>
+
+            <p>
+                Enemies can follow a zigzag movement
+                pattern, making their attack path
+                less predictable.
+            </p>
+
+            <span class="tag">
+                LEVEL 23
+            </span>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================================
+     05 — ENEMY FIRE TYPES
+========================================================= -->
+
+<section class="section">
+
+    <div class="section-header">
+
+        <div class="section-number">
+            05
+        </div>
+
+        <h2 class="section-title">
+            Enemy Fire Types
+        </h2>
+
+    </div>
+
+
+    <div class="grid">
+
+
+        <div class="card">
+
+            <div class="icon">
+                🔴
+            </div>
+
+            <h3>
+                SINGLE SHOT
+            </h3>
+
+            <p>
+                Fires one projectile straight
+                downward from the enemy.
+            </p>
+
+            <span class="tag">
+                SINGLE
+            </span>
+
+        </div>
+
+
+        <div class="card">
+
+            <div class="icon">
+                🔀
+            </div>
+
+            <h3>
+                DIAGONAL SHOT
+            </h3>
+
+            <p>
+                Fires three projectiles with
+                diagonal and central trajectories,
+                creating a wider attack pattern.
+            </p>
+
+            <span class="tag">
+                DIAGONAL
+            </span>
+
+        </div>
+
+
+        <div class="card">
+
+            <div class="icon">
+                🔥
+            </div>
+
+            <h3>
+                TRIPLE SHOT
+            </h3>
+
+            <p>
+                Fires three projectiles in a
+                vertically staggered pattern,
+                creating a concentrated stream
+                of incoming fire.
+            </p>
+
+            <span class="tag">
+                TRIPLE
+            </span>
+
+        </div>
+
+
+        <div class="card">
+
+            <div class="icon">
+                🎯
+            </div>
+
+            <h3>
+                SHOOTER SELECTION
+            </h3>
+
+            <p>
+                The game dynamically selects
+                enemies to attack. The number of
+                shooters can increase as the number
+                of surviving enemies falls.
+            </p>
+
+            <span class="tag">
+                DYNAMIC
+            </span>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================================
+     06 — RANDOM LEVEL GENERATOR
+========================================================= -->
+
+<section class="section">
+
+    <div class="section-header">
+
+        <div class="section-number">
+            06
+        </div>
+
+        <h2 class="section-title">
+            Random Level Generator
+        </h2>
+
+    </div>
+
+
+    <div class="generator">
+
+
+        <h3>
+            ⚡ PROCEDURAL COMBAT GENERATOR
+        </h3>
+
+
+        <p class="generator-description">
+
+            Normal levels are generated through
+            the game's dedicated level-generation
+            system.
+
+            The generator does not only determine
+            one aspect of the encounter. Normal
+            levels generate formation data, enemy
+            type, movement behavior and firing
+            behavior.
+
+            This creates combinations of gameplay
+            systems rather than relying on a single
+            permanently fixed enemy wave.
+
+        </p>
+
+
+        <div class="generator-grid">
+
+
+            <div class="generator-item">
+
+                <strong>
+                    FORMATION
+                </strong>
+
+                <span>
+                    Rectangle, Triangle, Diamond,
+                    Circle and Random formation
+                    options.
+                </span>
+
+            </div>
+
+
+            <div class="generator-item">
+
+                <strong>
+                    ENEMY TYPE
+                </strong>
+
+                <span>
+                    Basic, Speedy, Tank, Destroyer
+                    and later mixed enemy
+                    configurations.
+                </span>
+
+            </div>
+
+
+            <div class="generator-item">
+
+                <strong>
+                    MOVEMENT
+                </strong>
+
+                <span>
+                    Straight, Left/Right, Dive
+                    and Zigzag movement behavior.
+                </span>
+
+            </div>
+
+
+            <div class="generator-item">
+
+                <strong>
+                    FIRE TYPE
+                </strong>
+
+                <span>
+                    Single, Diagonal and Triple
+                    firing behavior.
+                </span>
+
+            </div>
+
+
+            <div class="generator-item">
+
+                <strong>
+                    DIFFICULTY
+                </strong>
+
+                <span>
+                    Enemy speed, health, cooldown,
+                    bullet speed and attack pressure
+                    scale through progression.
+                </span>
+
+            </div>
+
+
+            <div class="generator-item">
+
+                <strong>
+                    ELITE SYSTEM
+                </strong>
+
+                <span>
+                    Elite presence increases during
+                    later stages of the campaign.
+                </span>
+
+            </div>
+
+
+        </div>
+
+
+        <div
+            class="tag"
+            style="
+                margin-top:24px;
+                color:#ffdc61;
+                border-color:rgba(255,215,75,.25);
+                background:rgba(255,215,75,.06);
+            "
+        >
+            CORE GAMEPLAY SYSTEM
+        </div>
+
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================================
+     07 — CAMPAIGN
+========================================================= -->
+
+<section class="section">
+
+    <div class="section-header">
+
+        <div class="section-number">
+            07
+        </div>
+
+        <h2 class="section-title">
+            Campaign Progression
+        </h2>
+
+    </div>
+
+
+    <div class="timeline">
+
+
+        <div class="act">
+
+            <div class="act-number">
+                ACT I<br>
+                LV 1–10
+            </div>
+
+            <div>
+
+                <h3>
+                    THE BEGINNING
+                </h3>
+
+                <p>
+                    The campaign establishes the basic
+                    combat system. New formation,
+                    enemy and movement options begin
+                    entering the available pools.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="act">
+
+            <div class="act-number">
+                ACT II<br>
+                LV 11–20
+            </div>
+
+            <div>
+
+                <h3>
+                    ESCALATION
+                </h3>
+
+                <p>
+                    The enemy adapts. New firing
+                    behavior enters the battlefield,
+                    followed by additional formations
+                    and the Tank enemy.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="act">
+
+            <div class="act-number">
+                ACT III<br>
+                LV 21–30
+            </div>
+
+            <div>
+
+                <h3>
+                    ADAPTATION
+                </h3>
+
+                <p>
+                    The battle intensifies with the
+                    Destroyer enemy, Zigzag movement
+                    and Random formation.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="act">
+
+            <div class="act-number">
+                ACT IV<br>
+                LV 31–40
+            </div>
+
+            <div>
+
+                <h3>
+                    WARZONE
+                </h3>
+
+                <p>
+                    Different enemy types can now
+                    appear together. The campaign
+                    begins moving toward increasingly
+                    unpredictable mixed encounters.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="act">
+
+            <div class="act-number">
+                ACT V<br>
+                LV 41–50+
+            </div>
+
+            <div>
+
+                <h3>
+                    ENDGAME
+                </h3>
+
+                <p>
+                    Reinforcements and Elite
+                    promotion make later non-boss
+                    encounters substantially more
+                    dangerous.
+                </p>
+
+            </div>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================================
+     08 — LEVEL 31+
+========================================================= -->
+
+<section class="section">
+
+    <div class="section-header">
+
+        <div class="section-number">
+            08
+        </div>
+
+        <h2 class="section-title">
+            Level 31+ — Warzone
+        </h2>
+
+    </div>
+
+
+    <div class="warning">
+
+
+        <div class="warning-title">
+            ⚠ THE GAME STARTS GETTING WILD
+        </div>
+
+
+        <p>
+
+            Level 31 begins Act IV: WARZONE.
+
+            This is where mixed enemy encounters
+            are introduced. Instead of relying on
+            one enemy type, different enemy classes
+            can appear together.
+
+            As progression continues, enemy health,
+            movement, firing pressure and other
+            difficulty values continue scaling.
+
+            From Level 40 onward, non-boss levels
+            can also receive reinforcements.
+
+            When the remaining enemy count becomes
+            low, surviving enemies can be promoted
+            to Elite, making the final portion of a
+            wave especially dangerous.
+
+        </p>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================================
+     09 — REINFORCEMENTS
+========================================================= -->
+
+<section class="section">
+
+    <div class="section-header">
+
+        <div class="section-number">
+            09
+        </div>
+
+        <h2 class="section-title">
+            Late Game Escalation
+        </h2>
+
+    </div>
+
+
+    <div class="grid">
+
+
+        <div class="card">
+
+            <div class="icon">
+                🚨
+            </div>
+
+            <h3>
+                REINFORCEMENTS
+            </h3>
+
+            <p>
+                From Level 40 onward on non-boss
+                levels, additional enemies can
+                enter after the initial wave has
+                been reduced.
+            </p>
+
+            <span class="tag">
+                LEVEL 40+
+            </span>
+
+        </div>
+
+
+        <div class="card">
+
+            <div class="icon">
+                💠
+            </div>
+
+            <h3>
+                ELITE PROMOTION
+            </h3>
+
+            <p>
+                When only a small number of enemies
+                remain, surviving non-Elite enemies
+                can be promoted to Elite.
+            </p>
+
+            <span class="tag">
+                LEVEL 40+
+            </span>
+
+        </div>
+
+
+        <div class="card">
+
+            <div class="icon">
+                🔥
+            </div>
+
+            <h3>
+                END-OF-WAVE PRESSURE
+            </h3>
+
+            <p>
+                Reducing the enemy count does not
+                always mean the danger is over.
+                Late-game survivors can become
+                stronger before the wave ends.
+            </p>
+
+            <span class="tag">
+                LATE GAME
+            </span>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================================
+     10 — BOSSES
+========================================================= -->
+
+<section class="section">
+
+    <div class="section-header">
+
+        <div class="section-number">
+            10
+        </div>
+
+        <h2 class="section-title">
+            Boss Encounters
+        </h2>
+
+    </div>
+
+
+    <div class="grid">
+
+
+        <div class="card">
+
+            <div class="icon">
+                👑
+            </div>
+
+            <h3>
+                EVERY 10TH LEVEL
+            </h3>
+
+            <p>
+                Levels divisible by ten are treated
+                as boss levels rather than normal
+                generated enemy waves.
+            </p>
+
+            <span class="tag">
+                10 / 20 / 30 / 40 / 50
+            </span>
+
+        </div>
+
+
+        <div class="card">
+
+            <div class="icon">
+                ⚔️
+            </div>
+
+            <h3>
+                BOSS ENGINE
+            </h3>
+
+            <p>
+                Boss encounters use the dedicated
+                BossEngine rather than the normal
+                enemy-wave generation path.
+            </p>
+
+            <span class="tag">
+                BOSS SYSTEM
+            </span>
+
+        </div>
+
+
+        <div class="card">
+
+            <div class="icon">
+                🏆
+            </div>
+
+            <h3>
+                CAMPAIGN ENDGAME
+            </h3>
+
+            <p>
+                The campaign checks progression
+                beyond Level 50 and can transition
+                into the victory state.
+            </p>
+
+            <span class="tag">
+                ENDGAME
+            </span>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================================
+     11 — POWER UPS
+========================================================= -->
+
+<section class="section">
+
+    <div class="section-header">
+
+        <div class="section-number">
+            11
+        </div>
+
+        <h2 class="section-title">
+            Power-Ups
+        </h2>
+
+    </div>
+
+
+    <div class="grid">
+
+
+        <div class="card">
+
+            <div class="icon">
+                ❤️
+            </div>
+
+            <h3>
+                HEALTH
+            </h3>
+
+            <p>
+                Restores player health when collected.
+            </p>
+
+            <span class="tag">
+                RECOVERY
+            </span>
+
+        </div>
+
+
+        <div class="card">
+
+            <div class="icon">
+                ⚡
+            </div>
+
+            <h3>
+                RAPID FIRE
+            </h3>
+
+            <p>
+                Temporarily improves the player's
+                firing capability.
+            </p>
+
+            <span class="tag">
+                WEAPON
+            </span>
+
+        </div>
+
+
+        <div class="card">
+
+            <div class="icon">
+                🛡️
+            </div>
+
+            <h3>
+                SHIELD
+            </h3>
+
+            <p>
+                Provides temporary protection
+                against incoming danger.
+            </p>
+
+            <span class="tag">
+                DEFENSE
+            </span>
+
+        </div>
+
+
+        <div class="card">
+
+            <div class="icon">
+                💥
+            </div>
+
+            <h3>
+                DOUBLE DAMAGE
+            </h3>
+
+            <p>
+                Temporarily increases the damage
+                dealt by player attacks.
+            </p>
+
+            <span class="tag">
+                DAMAGE
+            </span>
+
+        </div>
+
+
+        <div class="card">
+
+            <div class="icon">
+                ✦
+            </div>
+
+            <h3>
+                DIAGONAL SHOT
+            </h3>
+
+            <p>
+                Adds diagonal firing capability
+                to the player's weapon.
+            </p>
+
+            <span class="tag">
+                WEAPON
+            </span>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================================
+     12 — CONTROLS
+========================================================= -->
+
+<section class="section">
+
+    <div class="section-header">
+
+        <div class="section-number">
+            12
+        </div>
+
+        <h2 class="section-title">
+            Controls
+        </h2>
+
+    </div>
+
+
+    <div class="controls">
+
+
+        <div class="control">
+
+            <div class="key">
+                W / A / S / D
+            </div>
+
+            <span>
+                Move
+            </span>
+
+        </div>
+
+
+        <div class="control">
+
+            <div class="key">
+                SPACE
+            </div>
+
+            <span>
+                Fire
+            </span>
+
+        </div>
+
+
+        <div class="control">
+
+            <div class="key">
+                ESC
+            </div>
+
+            <span>
+                Pause
+            </span>
+
+        </div>
+
+
+        <div class="control">
+
+            <div class="key">
+                ENTER
+            </div>
+
+            <span>
+                Confirm
+            </span>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================================
+     13 — SAVE
+========================================================= -->
+
+<section class="section">
+
+    <div class="section-header">
+
+        <div class="section-number">
+            13
+        </div>
+
+        <h2 class="section-title">
+            Save & Resume
+        </h2>
+
+    </div>
+
+
+    <div class="grid">
+
+
+        <div class="card">
+
+            <div class="icon">
+                💾
+            </div>
+
+            <h3>
+                SAVE GAME
+            </h3>
+
+            <p>
+                Campaign information can be stored
+                so progression can continue later.
+            </p>
+
+            <span class="tag">
+                SAVE SYSTEM
+            </span>
+
+        </div>
+
+
+        <div class="card">
+
+            <div class="icon">
+                🔄
+            </div>
+
+            <h3>
+                RESUME
+            </h3>
+
+            <p>
+                Resume loads the stored campaign
+                instead of starting a new game.
+            </p>
+
+            <span class="tag">
+                CONTINUE
+            </span>
+
+        </div>
+
+
+        <div class="card">
+
+            <div class="icon">
+                🎯
+            </div>
+
+            <h3>
+                CHECKPOINT
+            </h3>
+
+            <p>
+                Level progression stores checkpoint
+                information so the campaign can
+                recover from the stored state.
+            </p>
+
+            <span class="tag">
+                CHECKPOINT
+            </span>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+
+</main>
+
+
+
+<!-- =========================================================
+     FOOTER
+========================================================= -->
+
+<footer>
+
+    SPACE RAIDERS • GAME CODEX
+
+    <strong>
+        CREATED BY MUHAMMAD HUZAIFA
+    </strong>
+
+</footer>
+
+
+</body>
+
+</html>
