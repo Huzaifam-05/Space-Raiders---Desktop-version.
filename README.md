@@ -27,7 +27,7 @@ This repository contains the **Windows desktop version and its source code**.
 **[▶ Play Space Raiders](https://huzaifam-05.github.io/Space-Raiders-Web/)**
 
 No installation is required.Open the game in a modern web browser and start playing. 
-But it is recommened to play locally by downloading .exe file from **[HERE](https://github.com/Huzaifam-05/Space-Raiders---Desktop-version./)**
+But it is recommened to play locally by downloading .exe file from **[HERE](https://github.com/Huzaifam-05/Space-Raiders---Desktop-version./)** (Download other files aswell)
 
 ---
 
